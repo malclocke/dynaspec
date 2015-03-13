@@ -9,6 +9,10 @@ headers as a minimum:
     CDELT1
     JD-MID
 
+Requirements
+------------
+`dynaspec` requires Python, with the following modules - `pyfits`, `numpy`,
+`matplotlib` and `scipy`.
 
 Usage
 -----
