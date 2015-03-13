@@ -15,7 +15,7 @@ def convert_wavelengths_to_velocity(wavelengths, frequency):
 parser = argparse.ArgumentParser(description='Make 2D grayscale image from multiple 1D spectra')
 parser.add_argument('master', type=str)
 parser.add_argument('file', type=str, nargs='+')
-parser.add_argument('--cmap', '-c', type=str, default='gist_stern')
+parser.add_argument('--cmap', '-c', type=str, default='gray')
 parser.add_argument('--title', '-t', type=str, default='')
 parser.add_argument('--vmin', type=float)
 parser.add_argument('--vmax', type=float)
