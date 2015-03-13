@@ -13,7 +13,7 @@ from matplotlib import cm
 parser = argparse.ArgumentParser(description='Make 2D grayscale image from multiple 1D spectra')
 parser.add_argument('master', type=str)
 parser.add_argument('file', type=str, nargs='+')
-parser.add_argument('--cmap', '-c', type=str, default='gist_stern')
+parser.add_argument('--cmap', '-c', type=str, default='gray')
 parser.add_argument('--title', '-t', type=str, default='')
 parser.add_argument('--alpha', '-a', type=float, default=0.8,
         help='Surface transparency. 0 for transparent, 1 for opaque.')
@@ -70,9 +70,9 @@ Zm = np.ma.masked_where(np.isnan(Z),Z)
 
 fig = plt.figure()
 ax = fig.gca(projection='3d')
-ax.plot_surface(X, Y, Zm, rstride=3, cstride=10, alpha=args.alpha, cmap=cm.gist_stern)
+ax.plot_surface(X, Y, Zm, rstride=3, cstride=10, alpha=args.alpha, cmap=getattr(cm, args.cmap))
 if not args.nocontour:
-    cset = ax.contourf(X, Y, Zm, zdir='z', offset=Zm.min()*args.contour_offset, cmap=cm.gist_stern)
+    cset = ax.contourf(X, Y, Zm, zdir='z', offset=Zm.min()*args.contour_offset, cmap=getattr(cm, args.cmap))
     ax.set_zlim(Zm.min()*args.contour_offset, Zm.max())
 
 ax.set_title(args.title)
