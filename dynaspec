@@ -57,7 +57,9 @@ a.fill(header['JD-MID'] - start_jd)
 x = np.append(x, wavelengths)
 y = np.append(y, a)
 z = np.append(z, master.data())
-xlabel = header['CUNIT1']
+xlabel = ''
+if 'CUNIT1' in header:
+    xlabel = header['CUNIT1']
 if args.velocity:
     xlabel = 'Velocity (km/s)'
 
