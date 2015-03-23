@@ -78,7 +78,7 @@ X,Y = np.meshgrid(xg,yg)
 
 # interpolate Z values on defined grid
 Z = griddata(np.vstack((x.flatten(),y.flatten())).T, \
-          np.vstack(z.flatten()),(X,Y),method='nearest').reshape(X.shape)
+          np.vstack(z.flatten()),(X,Y),method='linear').reshape(X.shape)
 # mask nan values, so they will not appear on plot
 Zm = np.ma.masked_where(np.isnan(Z),Z)
 
