@@ -51,6 +51,7 @@ x = np.array([])
 y = np.array([])
 z = np.array([])
 ticks = []
+print "Processing %s" % (args.master)
 master = OneDSpec(pyfits.open(args.master))
 header = master.hdulist[0].header
 epoch = None
@@ -135,6 +136,7 @@ ax.set_title(args.title)
 ax.set_xlabel(xlabel)
 if args.phase:
     ax.set_ylabel("Phase")
+    ax.invert_yaxis()
 else:
     ax.set_ylabel("JD - %d" % start_jd)
 plt.yticks(ticks)
